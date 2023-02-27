@@ -72,13 +72,12 @@ const fileObservable = urlObservable.pipe(
   // map((url) => http.get(url)),
   map((url) => {
     return 'http.get(url) ' + url;
-  }),
-  concatAll()
+  })
+  // concatAll() // if concatAll is uncommented, it will output one character at a time
 );
-
 let stream = fileObservable.subscribe((val) => console.log(val));
 
-// b)
+// b) https://rxjs.dev/api/index/function/concatAll
 // const clicks = fromEvent(document, 'click');
 // const higherOrder = clicks.pipe(map(() => interval(1000).pipe(take(4))));
 // const firstOrder = higherOrder.pipe(concatAll());
